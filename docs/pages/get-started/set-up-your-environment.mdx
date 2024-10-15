@@ -1,31 +1,22 @@
----
-title: Set up your environment
-description: Learn how to set up your development environment to start building with Expo.
-hideTOC: true
----
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import TaskManager from './components/TaskManager';
+import InformationFetcher from './components/InformationFetcher';
+// Importa otros componentes según sea necesario
 
-import { DevelopmentEnvironmentInstructions } from '~/scenes/get-started/set-up-your-environment/DevelopmentEnvironmentInstructions';
-import { DevelopmentModeForm } from '~/scenes/get-started/set-up-your-environment/DevelopmentModeForm';
-import { PlatformAndDeviceForm } from '~/scenes/get-started/set-up-your-environment/PlatformAndDeviceForm';
+const Stack = createStackNavigator();
 
-Let's set up a local development environment for running your project on Android and iOS.
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Gestor de Tareas" component={TaskManager} />
+        <Stack.Screen name="Consulta de Información" component={InformationFetcher} />
+        {/* Añade más pantallas según lo necesites */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-## Where would you like to develop?
-
-We recommend using a real device to develop, since you'll get to see exactly what your users will see.
-
-<PlatformAndDeviceForm />
-
-## How would you like to develop?
-
-Expo Go is a sandbox for trying out Expo quickly. A development build is a build of your own app that includes Expo's developer tools.
-
-<DevelopmentModeForm />
-
----
-
-<DevelopmentEnvironmentInstructions />
-
-## Next step
-
-You have a project and a development environment. Now it's time to start developing.
+export default App;
